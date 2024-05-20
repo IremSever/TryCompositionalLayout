@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PortraitCollectionViewCell" customModule="TryCompositionalLayout" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="183" height="271"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="183" height="271"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvl-pS-ERm">
+                        <rect key="frame" x="0.0" y="234" width="183" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="tuT-q0-aKH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e7G-pa-DJc">
+                        <rect key="frame" x="0.0" y="0.0" width="183" height="236"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="e7G-pa-DJc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2jZ-Sf-IF7"/>
+                <constraint firstAttribute="trailing" secondItem="nvl-pS-ERm" secondAttribute="trailing" id="KMe-m1-ORL"/>
+                <constraint firstAttribute="bottom" secondItem="nvl-pS-ERm" secondAttribute="bottom" id="MtZ-5K-ybz"/>
+                <constraint firstItem="nvl-pS-ERm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qdh-7D-mMK"/>
+                <constraint firstAttribute="bottom" secondItem="e7G-pa-DJc" secondAttribute="bottom" constant="35" id="T2F-Il-q2t"/>
+                <constraint firstAttribute="trailing" secondItem="e7G-pa-DJc" secondAttribute="trailing" id="Uz1-Wx-T4U"/>
+                <constraint firstItem="e7G-pa-DJc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eUE-YQ-BbB"/>
+            </constraints>
+            <size key="customSize" width="183" height="271"/>
+            <connections>
+                <outlet property="imgPortrait" destination="e7G-pa-DJc" id="2nz-Eh-Imn"/>
+                <outlet property="lblPortrait" destination="nvl-pS-ERm" id="ZE8-ep-5Z0"/>
+            </connections>
+            <point key="canvasLocation" x="93.89312977099236" y="25"/>
+        </collectionViewCell>
+    </objects>
+</document>
