@@ -56,16 +56,15 @@ class ViewController: UIViewController {
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
+                section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
                 return section
             }
         }
     }
     
-    
     func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
     }
-    
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -92,16 +91,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             return cell
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
-            header.setup(sections[indexPath.row].title)
+            header.setup(sections[indexPath.section].title)
             return header
         default:
             return UICollectionReusableView()
         }
     }
-    
     
 }
