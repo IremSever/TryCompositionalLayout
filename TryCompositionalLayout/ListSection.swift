@@ -9,14 +9,16 @@ import Foundation
 
 enum ListSection {
     case stories([ListItem])
-    case popular([ListItem])
+    case trends([ListItem])
     case comingSoon([ListItem])
+    case popular([ListItem])
     
     var items: [ListItem] {
         switch self {
         case .stories(let items),
-             .popular(let items),
-             .comingSoon(let items):
+             .trends(let items),
+             .comingSoon(let items),
+             .popular(let items):
             return items
         }
     }
@@ -29,10 +31,13 @@ enum ListSection {
         switch self {
         case .stories:
             return "Stories"
-        case .popular:
-            return "Popular"
+        case .trends:
+            return "Trends"
         case .comingSoon:
             return "Coming Soon"
+        case .popular:
+            return "Popular"
         }
+        
     }
 }

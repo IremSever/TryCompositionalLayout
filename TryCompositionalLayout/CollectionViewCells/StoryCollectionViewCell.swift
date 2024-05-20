@@ -13,14 +13,17 @@ class StoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
     }
     
+    func setupUI() {
+        imgStory.layer.borderWidth = 1.0
+        imgStory.layer.borderColor = UIColor.lightGray.cgColor
+    }
+
     func setup(_ item: ListItem) {
         imgStory.image = UIImage(named: item.image)
         imgStory.layoutIfNeeded()
         imgStory.layer.cornerRadius = imgStory.frame.height / 2
     }
-    
-
 }

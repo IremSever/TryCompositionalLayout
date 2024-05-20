@@ -37,9 +37,8 @@ class ViewController: UIViewController {
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
-                //section.supplementariesFollowContentInsets = false
                 return section
-            case .popular:
+            case .trends:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.6)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
@@ -47,13 +46,21 @@ class ViewController: UIViewController {
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
-                //section.supplementariesFollowContentInsets = false
                 return section
             case .comingSoon:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(200), heightDimension: .absolute(60)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
+                section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
+                return section
+            case .popular:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.6)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
@@ -81,12 +88,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as! StoryCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
-        case .popular(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PortraitCollectionViewCell", for: indexPath) as! PortraitCollectionViewCell
+        case .trends(let items):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendsCollectionViewCell", for: indexPath) as! TrendsCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         case .comingSoon(let items):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LandscapeCollectionViewCell", for: indexPath) as! LandscapeCollectionViewCell
+            cell.setup(items[indexPath.row])
+            return cell
+        case .popular(let items):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PortraitCollectionViewCell", for: indexPath) as! PortraitCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         }

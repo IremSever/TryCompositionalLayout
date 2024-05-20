@@ -24,6 +24,8 @@
 		660951B32BFB2678009648CE /* LandscapeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660951B12BFB2678009648CE /* LandscapeCollectionViewCell.xib */; };
 		660951BA2BFB28D2009648CE /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660951B82BFB28D2009648CE /* HeaderCollectionReusableView.swift */; };
 		660951BB2BFB28D2009648CE /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660951B92BFB28D2009648CE /* HeaderCollectionReusableView.xib */; };
+		66559F6C2BFB84980091CFB1 /* TrendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66559F6A2BFB84980091CFB1 /* TrendsCollectionViewCell.swift */; };
+		66559F6D2BFB84980091CFB1 /* TrendsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66559F6B2BFB84980091CFB1 /* TrendsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		660951B12BFB2678009648CE /* LandscapeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandscapeCollectionViewCell.xib; sourceTree = "<group>"; };
 		660951B82BFB28D2009648CE /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		660951B92BFB28D2009648CE /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		66559F6A2BFB84980091CFB1 /* TrendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsCollectionViewCell.swift; sourceTree = "<group>"; };
+		66559F6B2BFB84980091CFB1 /* TrendsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				660951B12BFB2678009648CE /* LandscapeCollectionViewCell.xib */,
 				660951B82BFB28D2009648CE /* HeaderCollectionReusableView.swift */,
 				660951B92BFB28D2009648CE /* HeaderCollectionReusableView.xib */,
+				66559F6A2BFB84980091CFB1 /* TrendsCollectionViewCell.swift */,
+				66559F6B2BFB84980091CFB1 /* TrendsCollectionViewCell.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 				660951B32BFB2678009648CE /* LandscapeCollectionViewCell.xib in Resources */,
 				660951AB2BFB20DD009648CE /* StoryCollectionViewCell.xib in Resources */,
 				6609518F2BF61D94009648CE /* LaunchScreen.storyboard in Resources */,
+				66559F6D2BFB84980091CFB1 /* TrendsCollectionViewCell.xib in Resources */,
 				660951AF2BFB21CD009648CE /* PortraitCollectionViewCell.xib in Resources */,
 				6609518C2BF61D94009648CE /* Assets.xcassets in Resources */,
 				6609518A2BF61D92009648CE /* Main.storyboard in Resources */,
@@ -184,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				660951AA2BFB20DD009648CE /* StoryCollectionViewCell.swift in Sources */,
+				66559F6C2BFB84980091CFB1 /* TrendsCollectionViewCell.swift in Sources */,
 				660951872BF61D92009648CE /* ViewController.swift in Sources */,
 				660951A22BF780E9009648CE /* ListItem.swift in Sources */,
 				660951B22BFB2678009648CE /* LandscapeCollectionViewCell.swift in Sources */,
