@@ -35,7 +35,7 @@ class ViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 16, bottom: 20, trailing: 16)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
                 //section.supplementariesFollowContentInsets = false
                 return section
@@ -43,9 +43,9 @@ class ViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.6)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .continuous
+                section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 16, bottom: 20, trailing: 16)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
                 //section.supplementariesFollowContentInsets = false
                 return section
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
                 return section
             }
         }
