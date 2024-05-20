@@ -14,17 +14,17 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p13-6c-ctb">
-                    <rect key="frame" x="16" y="14.999999999999998" width="210" height="20.333333333333329"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="8" y="14.999999999999998" width="226" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.1426327825" green="0.19472235439999999" blue="0.30590561030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
-                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="p13-6c-ctb" secondAttribute="trailing" constant="16" id="B4k-JB-XXC"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="p13-6c-ctb" secondAttribute="trailing" constant="8" id="B4k-JB-XXC"/>
                 <constraint firstItem="p13-6c-ctb" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="FEh-qg-UcA"/>
-                <constraint firstItem="p13-6c-ctb" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="16" id="O0h-jL-QXH"/>
+                <constraint firstItem="p13-6c-ctb" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="8" id="O0h-jL-QXH"/>
             </constraints>
             <connections>
                 <outlet property="lblHeader" destination="p13-6c-ctb" id="EAj-JX-Kgu"/>

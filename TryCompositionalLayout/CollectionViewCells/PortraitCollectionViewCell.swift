@@ -13,9 +13,13 @@ class PortraitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgPortrait: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
     }
     
+    func setupUI() {
+        self.layer.cornerRadius = 20
+        self.clipsToBounds = true
+    }
     
     func setup(_ item: ListItem){
         imgPortrait.image = UIImage(named: item.image)

@@ -16,13 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="183" height="271"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvl-pS-ERm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvl-pS-ERm">
                         <rect key="frame" x="0.0" y="234" width="183" height="37"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="37" id="tuT-q0-aKH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" red="0.1426327825" green="0.19472235439999999" blue="0.30590561030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e7G-pa-DJc">
@@ -31,6 +31,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="1" green="0.99279536160000004" blue="0.55146523889999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="e7G-pa-DJc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2jZ-Sf-IF7"/>
                 <constraint firstAttribute="trailing" secondItem="nvl-pS-ERm" secondAttribute="trailing" id="KMe-m1-ORL"/>

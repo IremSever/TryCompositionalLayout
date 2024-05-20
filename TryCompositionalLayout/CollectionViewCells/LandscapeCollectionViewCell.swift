@@ -13,7 +13,12 @@ class LandscapeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgLandscape: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
+    }
+    
+    func setupUI() {
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
     }
     
     func setup(_ item: ListItem) {
