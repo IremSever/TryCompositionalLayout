@@ -18,5 +18,5 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     func setup(_ title: String){
         lblHeader.text = title
     }
-
+ 
 }

@@ -22,11 +22,11 @@ struct AppData {
     }()
     
     private let popular: ListSection = {
-        .popular([.init(title: "Inside", image: "popular*1"),
-                  .init(title: "Outside", image: "popular*2"),
-                  .init(title: "ModernVilla", image: "popular*3"),
+        .popular([.init(title: "Pool in the Courtyard", image: "popular*5"),
                   .init(title: "Postmodern Architecture", image: "popular*4"),
-                  .init(title: "Pool in the Courtyard", image: "popular*5")])
+                  .init(title: "ModernVilla", image: "popular*3"),
+                  .init(title: "Inside", image: "popular*1"),
+                  .init(title: "Outside", image: "popular*2")])
     }()
     
     private let comingSoon: ListSection = {
