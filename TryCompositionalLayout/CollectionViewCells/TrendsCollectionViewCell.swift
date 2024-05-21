@@ -25,7 +25,7 @@ class TrendsCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        
     }
     
     func setup(_ item: ListItem) {

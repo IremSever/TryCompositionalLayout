@@ -21,7 +21,7 @@ struct AppData {
                   .init(title: "", image: "story*8", date: "", description: "")])
     }()
     private let trends: ListSection = {
-        .popular([.init(title: "Baroque Architecture", image: "baroque", date: "11.04.2023",
+        .trends([.init(title: "Baroque Architecture", image: "baroque", date: "11.04.2023",
                         description: "The Baroque is a highly ornate and elaborate style of architecture, art and design that flourished in Europe in the 17th and first half of the 18th century. Originating in Italy, its influence quickly spread across Europe and it became the first visual style to have a significant worldwide impact."),
                   .init(title: "Renaissance Architecture", image: "Renaissance architecture", date: "", 
                         description: "Renaissance Architecture originated in Italy and superseded the Gothic style over a period generally defined as 1400 to 1600. Features of Renaissance buildings include the use of the classical orders and mathematically precise ratios of height and width combined with a desire for symmetry, proportion, and harmony"),

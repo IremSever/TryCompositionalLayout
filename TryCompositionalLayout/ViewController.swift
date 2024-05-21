@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     func registerCells() {
         collectionView.register(UINib(nibName: "StoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: StoryCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: "TrendsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: TrendsCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: "PortraitCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: PortraitCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: "LandscapeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: LandscapeCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: "HeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
@@ -40,8 +41,9 @@ class ViewController: UIViewController {
                 return section
             case .trends:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.6)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.8)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
+                //section.backgroundColor = .black
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
@@ -85,19 +87,19 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch sections[indexPath.section] {
         case .stories(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as! StoryCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.identifier, for: indexPath) as! StoryCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         case .trends(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendsCollectionViewCell", for: indexPath) as! TrendsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsCollectionViewCell.identifier, for: indexPath) as! TrendsCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         case .comingSoon(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LandscapeCollectionViewCell", for: indexPath) as! LandscapeCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LandscapeCollectionViewCell.identifier, for: indexPath) as! LandscapeCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         case .popular(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PortraitCollectionViewCell", for: indexPath) as! PortraitCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PortraitCollectionViewCell.identifier, for: indexPath) as! PortraitCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         }
