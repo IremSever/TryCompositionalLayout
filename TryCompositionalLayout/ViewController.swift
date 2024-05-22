@@ -56,10 +56,11 @@ class ViewController: UIViewController {
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
-                return section            
+                return section
             case .trends:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.55)), subitems: [item])
+                // create dynamic cell
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))) // estimed height when application start
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.interGroupSpacing = 10
