@@ -89,21 +89,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.identifier, for: indexPath) as! StoryCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
-        case .trends(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsCollectionViewCell.identifier, for: indexPath) as! TrendsCollectionViewCell
+        case .popular(let items):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PortraitCollectionViewCell.identifier, for: indexPath) as! PortraitCollectionViewCell
+            
             cell.setup(items[indexPath.row])
             return cell
         case .comingSoon(let items):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LandscapeCollectionViewCell.identifier, for: indexPath) as! LandscapeCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
-        case .popular(let items):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PortraitCollectionViewCell.identifier, for: indexPath) as! PortraitCollectionViewCell
+        case .trends(let items):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsCollectionViewCell.identifier, for: indexPath) as! TrendsCollectionViewCell
             cell.setup(items[indexPath.row])
             return cell
         }
     }
-    
+  
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
