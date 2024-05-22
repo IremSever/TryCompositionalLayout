@@ -82,17 +82,17 @@
 		660951812BF61D92009648CE /* TryCompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				660951A12BF780E9009648CE /* ListItem.swift */,
+				660951A32BF7812D009648CE /* ListSection.swift */,
+				660951A62BF78397009648CE /* AppData.swift */,
 				660951A02BF780B6009648CE /* CollectionViewCells */,
-				660951842BF61D92009648CE /* SceneDelegate.swift */,
-				660951822BF61D92009648CE /* AppDelegate.swift */,
 				660951862BF61D92009648CE /* ViewController.swift */,
 				660951882BF61D92009648CE /* Main.storyboard */,
 				6609518B2BF61D94009648CE /* Assets.xcassets */,
 				6609518D2BF61D94009648CE /* LaunchScreen.storyboard */,
 				660951902BF61D94009648CE /* Info.plist */,
-				660951A12BF780E9009648CE /* ListItem.swift */,
-				660951A32BF7812D009648CE /* ListSection.swift */,
-				660951A62BF78397009648CE /* AppData.swift */,
+				660951822BF61D92009648CE /* AppDelegate.swift */,
+				660951842BF61D92009648CE /* SceneDelegate.swift */,
 			);
 			path = TryCompositionalLayout;
 			sourceTree = "<group>";
