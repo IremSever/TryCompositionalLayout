@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private let sections = AppData.shared.pageData
+    private var maxHeight: CGFloat = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +28,12 @@ class ViewController: UIViewController {
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
-            guard let self = self else { return nil }
+        let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
+            guard let self = self else {
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)), subitems: [item])
+                return NSCollectionLayoutSection(group: group)
+            }
             let section = self.sections[sectionIndex]
             switch section {
             case .stories:
@@ -36,7 +42,7 @@ class ViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
                 return section
             case .popular:
@@ -45,7 +51,7 @@ class ViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
                 return section
             case .comingSoon:
@@ -54,29 +60,55 @@ class ViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
                 return section
             case .trends:
-                // create dynamic cell
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))) // estimed height when application start
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100)), subitems: [item])
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(maxHeight > 0 ? maxHeight : 100)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(maxHeight > 0 ? maxHeight : 100)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 0, leading: 16, bottom: 10, trailing: 16)
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
+                section.contentInsetsReference = .layoutMargins
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]
+                let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+                section.decorationItems = [decorationItem]
                 return section
             }
         }
+        
+        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: "background")
+        return layout
     }
     
     func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
     }
+    
+    class BackgroundDecorationView: UICollectionReusableView {
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            self.backgroundColor = UIColor(red: 154/255, green: 205/255, blue: 50/255, alpha: 0.5)
+        }
+
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, TrendsCollectionViewCellDelegate {
+    func didCalculateCellHeight(height: CGFloat) {
+        if maxHeight == 0 {
+            maxHeight = height
+        } else if height > maxHeight {
+            maxHeight = height
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+        //print("****************************", maxHeight)
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
@@ -102,10 +134,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         case .trends(let items):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendsCollectionViewCell.identifier, for: indexPath) as! TrendsCollectionViewCell
             cell.setup(items[indexPath.row])
+            cell.delegate = self
             return cell
         }
     }
-  
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
